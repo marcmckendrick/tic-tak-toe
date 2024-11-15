@@ -1,0 +1,76 @@
+.header {
+    text-align: center;
+    background: #27423d;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 2pc;
+  }
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding: 5pc;
+
+}
+
+.footer {
+    text-align: center;
+    justify-content: center;
+    background: #27423d;
+    font-size: 20px;
+    margin-top: 2pc;
+    padding: 5px;
+}
+
+.new-game-btn {
+    color: white;
+    background-color: #27423d;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+    padding: 15px 32px;
+
+}
+
+.screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+
+/* Set up the general grid layout */
+.board-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* 3 columns of 100px each */
+    grid-template-rows: repeat(3, 100px);    /* 3 rows of 100px each */
+    gap: 5px;  /* Space between the cells */
+    justify-content: center;
+    align-items: center;
+    margin: 2pc;
+}
+
+/* Style for each individual cell */
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center;     /* Center content vertically */
+    font-size: 32px;         /* Adjust the font size for X and O */
+    border: 2px solid #000;  /* Border around each cell */
+    background-color: #f0f0f0; /* Light background for cells */
+    cursor: pointer;         /* Show a pointer cursor when hovering */
+    text-align: center;      /* Center text inside the cell */
+}
+
+/* Add some styling when a cell is clicked */
+.cell:active {
+    background-color: #d0d0d0; /* Change background color when clicked */
+}
+
+.grid-item:hover {
+    background-color: #f0f0f0;
+}
