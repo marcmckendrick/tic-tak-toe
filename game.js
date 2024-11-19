@@ -1,9 +1,5 @@
 let currentPlayer = 'X';
 
-function Cell() {
-    return ""; 
-}
-
 function board() {
     const rows = 3;
     const columns = 3;
@@ -12,35 +8,32 @@ function board() {
     for (let i = 0; i < rows; i++) {
         board[i] = []; 
         for (let j = 0; j < columns; j++) {
-            board[i].push(Cell());
+            board[i].push("");
         }
     }
 
-    return board; // Return the completed board
+    return board;
 }
 
-const myBoard = board();
+let myBoard = board();
 
 function updateCell(row, col) {
-    // Only update if the cell is empty
 
     console.log("Current board state: ", myBoard);
 
     if (myBoard[row][col] === "") {
-        // Set the cell to the current player's symbol
         myBoard[row][col] = currentPlayer;
         
         const cell = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         console.log(cell)
 
         if (cell) {
-            cell.textContent = currentPlayer;  // Display X or O in the cell
-            console.log(`Cell at (${row}, ${col}) updated with: ${currentPlayer}`); // Debugging log
+            cell.textContent = currentPlayer; 
+            console.log(`Cell at (${row}, ${col}) updated with: ${currentPlayer}`);
         } else {
             console.error(`Cell not found in DOM for row: ${row}, col: ${col}`);
         }
 
-        // Switch the player after the move
         currentPlayer = currentPlayer === "X" ? "O" : "X";
     } else {
         console.log(`Cell at (${row}, ${col}) is already filled.`);
@@ -58,9 +51,12 @@ document.querySelectorAll(".cell").forEach(cell =>{
 });
 
 function resetGame() {
-    myBoard = board();  // Reset the board
-    currentPlayer = "X";  // Set the first player to X
-    document.querySelectorAll(".cell").forEach(cell => cell.textContent = "");  // Clear the visual board
-}
+    myBoard = board();
+    console.log("Current board state after reset: ", myBoard);
+    
+    document.querySelectorAll(".cell").forEach(cell => cell.textContent = ""); 
+
+    console.log("clicked reset") 
+}    
 
 document.querySelector(".new-game-btn").addEventListener("click", resetGame);
